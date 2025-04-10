@@ -8,8 +8,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from pyvirtualdisplay import Display
 
 display = Display(visible=0, size=(800, 800))  
@@ -46,15 +44,16 @@ driver = webdriver.Chrome(options = chrome_options)
 
 # Navigate and Log into Discord
 driver.get("https://discord.com/login")
-wait = WebDriverWait(driver, 10)  # Explicit wait
-time.sleep(2)
-email_field = wait.until(EC.presence_of_element_located((By.NAME, "email")))
-pass_field = driver.find_element(by=By.NAME, value="password")
+
+
+time.sleep(3)
+email_field = driver.find_element(By.XPATH, '//*[@id="uid_32"]')
+pass_field = driver.find_element(By.XPATH, '//*[@id="uid_34"]')
 time.sleep(2)
 email_field.send_keys(DISCORD_EMAIL)
 pass_field.send_keys(DISCORD_PASS)
-submit_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//*[@id='app-mount']/div[2]/div[1]/div[1]/div/div/div/div/form/div[2]/div/div[1]/div[2]/button[2]")))
-submit_button.click()
+submit_button = driver.find_element(By.XPATH, '//*[@id="app-mount"]/div[2]/div[1]/div[1]/div/div/div/div/form/div[2]/div/div[1]/div[2]/button[2]')
+submit_button.send_keys(Keys.ENTER)
 time.sleep(3)
 
 print(f'Current URL: {driver.current_url}')
