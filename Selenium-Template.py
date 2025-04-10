@@ -55,6 +55,7 @@ time.sleep(2)
 email_field.send_keys(DISCORD_EMAIL)
 pass_field.send_keys(DISCORD_PASS)
 submit_button = driver.find_element(by=By.XPATH, value='//*[@id="app-mount"]/div[2]/div[1]/div[1]/div/div/div/div/form/div[2]/div/div[1]/div[2]/button[2]')
+print(submit_button)
 submit_button.send_keys(Keys.ENTER)
 time.sleep(3)
 
