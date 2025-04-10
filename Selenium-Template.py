@@ -46,6 +46,7 @@ driver = webdriver.Chrome(options = chrome_options)
 
 # Navigate and Log into Discord
 driver.get("https://discord.com/login")
+print(f'{DISCORD_EMAIL} + {DISCORD_PASS}')
 wait = WebDriverWait(driver, 10)  # Explicit wait
 time.sleep(2)
 email_field = wait.until(EC.presence_of_element_located((By.NAME, "email")))
