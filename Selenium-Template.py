@@ -47,8 +47,10 @@ driver = webdriver.Chrome(options = chrome_options)
 # Navigate and Log into Discord
 driver.get("https://discord.com/login")
 wait = WebDriverWait(driver, 10)  # Explicit wait
+time.sleep(2)
 email_field = wait.until(EC.presence_of_element_located((By.NAME, "email")))
 pass_field = driver.find_element(by=By.NAME, value="password")
+time.sleep(2)
 email_field.send_keys(DISCORD_EMAIL)
 pass_field.send_keys(DISCORD_PASS)
 submit_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//*[@id='app-mount']/div[2]/div[1]/div[1]/div/div/div/div/form/div[2]/div/div[1]/div[2]/button[2]")))
