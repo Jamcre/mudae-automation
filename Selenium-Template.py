@@ -46,7 +46,6 @@ driver = webdriver.Chrome(options = chrome_options)
 
 # Navigate and Log into Discord
 driver.get("https://discord.com/login")
-print(f'{DISCORD_EMAIL} + {DISCORD_PASS}')
 wait = WebDriverWait(driver, 10)  # Explicit wait
 time.sleep(2)
 email_field = wait.until(EC.presence_of_element_located((By.NAME, "email")))
@@ -59,25 +58,6 @@ submit_button.click()
 time.sleep(3)
 
 print(f'Current URL: {driver.current_url}')
-
-# Navigate to Discord Channel
-wait.until(EC.url_contains("discord.com/channels"))
-driver.get(DISCORD_CHANNEL)
-# Text Input Automation
-channel_text_field = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "[aria-label='Message #mudae-s3']")))
-channel_text_field.send_keys('$tu')
-channel_text_field.send_keys(Keys.ENTER)
-time.sleep(2) # Delay for Bot to register
-# Send next messages
-channel_text_field.send_keys('$daily')
-channel_text_field.send_keys(Keys.ENTER)
-time.sleep(2) # Delay for Bot to register
-channel_text_field.send_keys('$dk')
-channel_text_field.send_keys(Keys.ENTER)
-time.sleep(2) # Delay for Bot to register
-
-print(f'Current URL: {driver.current_url}')
-
 
 print(driver.title)
 with open('./GitHub_Action_Results.txt', 'w') as f:
