@@ -1,1 +1,3 @@
-Logged in to Discord? False | Page Title: Discord
+Login successful? False
+URL: https://discord.com/login
+Title: Discord
