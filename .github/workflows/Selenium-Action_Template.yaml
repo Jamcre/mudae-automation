@@ -4,6 +4,9 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    env:
+      DISCORD_EMAIL: ${{ secrets.DISCORD_EMAIL }}
+      DISCORD_PASS: ${{ secrets.DISCORD_PASS }}
     steps:
       - name: Checking out repo
         uses: actions/checkout@v3
